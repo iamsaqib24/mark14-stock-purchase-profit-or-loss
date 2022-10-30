@@ -6,6 +6,17 @@ const outputArea = document.querySelector('#output-area');
 
 function checkProfitOrLoss() {
     // console.log(initialPrice.value);
+    let initialPriceNum = Number(initialPrice.value);
+    let stockQuantityNum = Number(stockQuantity.value);
+    let currentPriceNum = Number(currentPrice.value);
+
+    if (initialPriceNum < 0 || stockQuantityNum < 0 || currentPriceNum < 0) {
+        outputArea.innerText = "Input values cannot be negative ☹️";
+    }
+    else{
+        calculateProfitAndLoss(initialPriceNum, stockQuantityNum, currentPriceNum);
+    }
+
 }
 
 function calculateProfitAndLoss(initial, quantity, current) {
@@ -13,16 +24,16 @@ function calculateProfitAndLoss(initial, quantity, current) {
         let loss = (initial - current) * quantity;
         let lossPercentage = (loss/initial) * 100;
 
-        console.log(`loss is ${loss} and loss percentage is ${lossPercentage}%.`);
+        outputArea.innerText = `loss is ${loss} and loss percentage is ${lossPercentage}%.`;
     }
     else if (initial < current){
         let profit = (current - initial) * quantity;
         let profitPercentage = (profit/initial) * 100;
 
-        console.log(`profit is ${profit} and profit percentage is ${profitPercentage}%.`);
+        outputArea.innerText = `profit is ${profit} and profit percentage is ${profitPercentage}%.`;
     }
     else{
-        console.log(`Neither profit nor loss!`);
+        outputArea.innerText = `Neither profit nor loss!`;
     }
 }
 // calculateProfitAndLoss(100, 10, 10);
