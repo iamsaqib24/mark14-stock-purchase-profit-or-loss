@@ -10,8 +10,8 @@ function checkProfitOrLoss() {
     let stockQuantityNum = Number(stockQuantity.value);
     let currentPriceNum = Number(currentPrice.value);
 
-    if (initialPriceNum < 0 || stockQuantityNum < 0 || currentPriceNum < 0) {
-        outputArea.innerText = "Input values cannot be negative ☹️";
+    if (initialPriceNum <= 0 || stockQuantityNum <= 0 || currentPriceNum <= 0) {
+        outputArea.innerText = "Please give valid inputs.";
     }
     else{
         calculateProfitAndLoss(initialPriceNum, stockQuantityNum, currentPriceNum);
