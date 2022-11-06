@@ -22,13 +22,13 @@ function checkProfitOrLoss() {
 function calculateProfitAndLoss(initial, quantity, current) {
     if(initial > current){
         let loss = (initial - current) * quantity;
-        let lossPercentage = (loss/initial) * 100;
+        let lossPercentage = ((loss / initial) * 100).toFixed(2);
 
         outputArea.innerText = `loss is ${loss} and loss percentage is ${lossPercentage}%.`;
     }
     else if (initial < current){
         let profit = (current - initial) * quantity;
-        let profitPercentage = (profit/initial) * 100;
+        let profitPercentage = ((profit / initial) * 100).toFixed(2);
 
         outputArea.innerText = `profit is ${profit} and profit percentage is ${profitPercentage}%.`;
     }
